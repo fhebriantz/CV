@@ -1,0 +1,24 @@
+# ---- Hasil render: file turunan, selalu bisa dibuat ulang ----
+# Jalankan 'generate-all-pdf' / 'generate-all-image' untuk membuatnya kembali.
+*.pdf
+png/
+foto-headshot.jpg
+
+# ---- Varian berfoto ----
+# Dibuat ulang oleh make-photo-variants.py dari file induknya, dan fotonya
+# ditanam sebagai base64 di dalamnya. Tidak ikut repo supaya (a) tidak ada file
+# turunan yang di-commit, dan (b) foto pribadi tidak masuk repo publik.
+cv-*-photo.html
+
+# ---- Foto sumber ----
+# Aset pribadi. Taruh fotomu sebagai foto-source.jpg di folder ini, lalu
+# jalankan 'generate-all-pdf' untuk menghasilkan varian berfoto.
+foto-source.*
+Gemini_Generated_Image_*.png
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

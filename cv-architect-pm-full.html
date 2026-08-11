@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lutfi Febrianto — Solution Architecture &amp; Technical Delivery (Full CV)</title>
+<style>
+  /* ============================================================
+     CV — Lutfi Febrianto | Architecture & delivery track, full version
+     Self-contained. A4, multi-page, single column.
+     Print: Ctrl+P, A4, Default margins.
+     ============================================================ */
+
+  :root {
+    --navy:      #16293d;
+    --ink:       #1b2b3a;
+    --ink-soft:  #4a5a6a;
+    --ink-dim:   #7a8896;
+    --accent:    #0e7490;
+    --rule:      #dde3e9;
+    --wash:      #f4f7f9;
+  }
+
+  @page {
+    size: A4;
+    margin: 16mm 15mm 15mm;
+    /* WeasyPrint renders this footer; browsers use their own instead. */
+    @bottom-right {
+      content: "Lutfi Febrianto  ·  page " counter(page) " of " counter(pages);
+      font-family: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 7pt; color: #93a1ae;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Inter", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 9.4pt; line-height: 1.45;
+    color: var(--ink-soft); background: #fff;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+
+  .hdr { border-bottom: 0.8mm solid var(--navy); padding-bottom: 3.5mm; margin-bottom: 5mm; }
+  .hdr h1 { font-size: 22pt; font-weight: 700; letter-spacing: -0.2px; color: var(--navy); line-height: 1.05; }
+  .hdr .role { margin-top: 1.2mm; font-size: 10.5pt; font-weight: 600; letter-spacing: 0.6px; color: var(--accent); }
+  .hdr .meta { margin-top: 2.6mm; font-size: 8.8pt; color: var(--ink-soft); }
+  .hdr .meta a { color: var(--ink-soft); text-decoration: none; }
+  .hdr .meta .sep { color: var(--ink-dim); margin: 0 1.6mm; }
+
+  section { margin-bottom: 4.2mm; }
+
+  h2 {
+    font-size: 10pt; font-weight: 700; letter-spacing: 1.6px;
+    text-transform: uppercase; color: var(--navy);
+    display: flex; align-items: center; gap: 3mm; margin-bottom: 3mm;
+    break-after: avoid; page-break-after: avoid;
+  }
+  h2::after { content: ""; flex: 1 1 auto; height: 0.3mm; background: var(--rule); }
+
+  h3 {
+    font-size: 8.2pt; font-weight: 700; letter-spacing: 1.1px;
+    text-transform: uppercase; color: var(--accent);
+    margin: 4mm 0 2mm;
+    break-after: avoid; page-break-after: avoid;
+  }
+  h3:first-of-type { margin-top: 0; }
+
+  p.lead { font-size: 9.6pt; line-height: 1.5; }
+  p.lead + p.lead { margin-top: 2.4mm; }
+
+  table.skills { width: 100%; border-collapse: collapse; }
+  table.skills th, table.skills td {
+    text-align: left; vertical-align: top;
+    padding: 1.7mm 3mm 1.7mm 0;
+    border-bottom: 0.2mm solid var(--rule);
+  }
+  table.skills th {
+    width: 38mm; font-size: 8pt; font-weight: 700; letter-spacing: 0.7px;
+    text-transform: uppercase; color: var(--navy);
+  }
+  table.skills td { font-size: 9.2pt; }
+  table.skills tr:last-child th, table.skills tr:last-child td { border-bottom: none; }
+
+  .callout {
+    margin-top: 3mm; padding: 2.5mm 3mm;
+    background: var(--wash); border-left: 0.8mm solid var(--accent);
+    font-size: 8.8pt; line-height: 1.5;
+  }
+  .callout b { color: var(--navy); }
+
+  .job { margin-bottom: 3.8mm; break-inside: avoid-page; page-break-inside: avoid; }
+  .job:last-child { margin-bottom: 0; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 5mm; }
+  .job-title { font-size: 11pt; font-weight: 700; color: var(--navy); }
+  .job-date { flex: 0 0 auto; font-size: 8.4pt; font-weight: 600; color: var(--accent); white-space: nowrap; }
+  .job-company { font-size: 9.4pt; font-weight: 600; color: var(--ink); margin-top: 0.5mm; }
+  .job-company span { font-weight: 400; color: var(--ink-soft); }
+  .job-context { font-size: 8.8pt; font-style: italic; color: var(--ink-dim); margin-top: 1mm; }
+  .job ul { margin-top: 2mm; }
+
+  ul.bullets { list-style: none; }
+  ul.bullets li {
+    position: relative; padding-left: 4.2mm; margin-bottom: 1.1mm;
+    font-size: 9.2pt; line-height: 1.42;
+  }
+  ul.bullets li::before {
+    content: ""; position: absolute; left: 0.6mm; top: 1.9mm;
+    width: 1.2mm; height: 1.2mm; border-radius: 50%;
+    background: var(--accent); opacity: 0.6;
+  }
+  ul.bullets li strong { color: var(--ink); font-weight: 600; }
+  ul.bullets li:last-child { margin-bottom: 0; }
+
+  .proj {
+    margin-bottom: 2.8mm; padding-left: 3mm;
+    border-left: 0.5mm solid var(--rule);
+    break-inside: avoid-page; page-break-inside: avoid;
+  }
+  .proj:last-child { margin-bottom: 0; }
+  .proj-head { display: flex; justify-content: space-between; align-items: baseline; gap: 5mm; }
+  .proj-name { font-size: 9.6pt; font-weight: 700; color: var(--navy); }
+  .proj-date { flex: 0 0 auto; font-size: 8.2pt; color: var(--ink-dim); white-space: nowrap; }
+  .proj-line { font-size: 9.1pt; line-height: 1.42; margin-top: 1mm; }
+  .proj-line b { color: var(--ink); font-weight: 600; }
+  .proj-tech { font-size: 8.4pt; color: var(--accent); margin-top: 0.8mm; }
+
+  .edu { margin-bottom: 2.8mm; break-inside: avoid-page; page-break-inside: avoid; }
+  .edu:last-child { margin-bottom: 0; }
+  .edu-head { display: flex; justify-content: space-between; align-items: baseline; gap: 5mm; }
+  .edu-deg { font-size: 9.8pt; font-weight: 700; color: var(--navy); }
+  .edu-date { flex: 0 0 auto; font-size: 8.4pt; font-weight: 600; color: var(--accent); white-space: nowrap; }
+  .edu-school { font-size: 9.2pt; color: var(--ink); margin-top: 0.3mm; }
+  .edu-note { font-size: 8.9pt; line-height: 1.45; margin-top: 1mm; }
+
+  table.certs { width: 100%; border-collapse: collapse; }
+  table.certs td {
+    vertical-align: top; padding: 1.7mm 3mm 1.7mm 0;
+    border-bottom: 0.2mm solid var(--rule); font-size: 9.1pt;
+  }
+  table.certs td.date { width: 24mm; color: var(--ink-dim); font-size: 8.6pt; white-space: nowrap; }
+  table.certs td.what b { color: var(--navy); font-weight: 600; }
+  table.certs td.what span { color: var(--ink-dim); }
+  table.certs tr { break-inside: avoid-page; page-break-inside: avoid; }
+  table.certs tr:last-child td { border-bottom: none; }
+</style>
+</head>
+<body>
+
+  <header class="hdr">
+    <h1>Lutfi Febrianto</h1>
+    <div class="role">Solution Architecture &amp; Technical Delivery</div>
+    <div class="meta">
+      +62 857 1884 1359
+      <span class="sep">|</span><a href="mailto:lutfi.febrianto@gmail.com">lutfi.febrianto@gmail.com</a>
+      <span class="sep">|</span>Bogor, West Java, Indonesia
+    </div>
+  </header>
+
+  <section>
+    <h2>Profile</h2>
+    <p class="lead">
+      Engineer with eight years of hands-on delivery experience and a master's degree in Information
+      Systems Management, moving into solution architecture and technical delivery ownership. A large
+      part of my work already sits on that side: turning requirements into a system design, deciding
+      where service and data boundaries belong, agreeing API contracts with the teams that will
+      consume them, and making sure the pipeline and the monitoring around a release exist before it
+      ships.
+    </p>
+    <p class="lead">
+      I have delivered in telecommunications, an automotive marketplace, and logistics, for clients
+      including Telkomsel and DHL Supply Chain. I have also built the tooling that delivery itself
+      runs on, including an Agile project management tool and an internal ERP, and both of those
+      started with mapping how the organisation actually worked before writing any code. My value in
+      an architect or technical PM seat is that I still know what the build costs, because I have
+      been the one building it.
+    </p>
+  </section>
+
+  <section>
+    <h2>Areas of Practice</h2>
+    <table class="skills">
+      <tr>
+        <th>Solution Design</th>
+        <td>Service decomposition and boundaries, API contract design (REST, GraphQL), relational data modelling, system integration, non-functional requirements (performance, access control, observability)</td>
+      </tr>
+      <tr>
+        <th>Requirements</th>
+        <td>Stakeholder and client requirement gathering, current-state business process mapping, translating business needs into technical designs, scope definition</td>
+      </tr>
+      <tr>
+        <th>Delivery Management</th>
+        <td>Agile / Scrum delivery, scoping and estimation, working with product owners and QA, sprint ceremonies and demos, release coordination, client handover</td>
+      </tr>
+      <tr>
+        <th>Standards &amp; Docs</th>
+        <td>Peer code review, coding and schema standards, API contract documentation in Postman, technical documentation</td>
+      </tr>
+      <tr>
+        <th>Platform &amp; Operations</th>
+        <td>Docker packaging, CI/CD pipeline design (GitLab), artifact and dependency management (JFrog), observability (Grafana, Datadog), business reporting (Redash), Linux server administration</td>
+      </tr>
+      <tr>
+        <th>Runtime Environment</th>
+        <td>Containerised services running on Kubernetes (AWS). I own the application side of that boundary and hold read-only AWS access for inspection and debugging; the cluster and cloud infrastructure are owned by a dedicated DevOps team. I design to that split rather than around it.</td>
+      </tr>
+      <tr>
+        <th>Technical Foundation</th>
+        <td>Node.js, Nest.js, Express.js, AdonisJS, React, Next.js, Laravel, PHP, PostgreSQL, MySQL, Redis, PostGIS, Oracle PL/SQL</td>
+      </tr>
+    </table>
+    <p class="callout">
+      <b>Domain experience.</b>
+      Telecommunications: network monitoring, capacity planning, drive-test signal analysis.
+      Automotive marketplace: listings, vehicle inspection, auctions, dealer payment settlement.
+      Government: national land bank monitoring for the agrarian and spatial planning ministry.
+      Logistics: warehouse dock scheduling. Internal systems: ERP and project delivery tooling.
+    </p>
+  </section>
+
+  <section>
+    <h2>Professional Experience</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Backend Developer &mdash; Platform &amp; Integration</div>
+        <div class="job-date">Oct 2023 &ndash; Present</div>
+      </div>
+      <div class="job-company">PT Astra Digital Mobil <span>&mdash; OLX Indonesia, Jakarta</span></div>
+      <div class="job-context">
+        OLX is Indonesia's largest online classifieds platform. I work on the backend behind the
+        marketplace and the internal admin and dealer products, with design responsibility for the
+        services I own.
+      </div>
+      <ul class="bullets">
+        <li>Responsible for backend design across the admin and dealer platforms: <strong>service boundaries, API contracts, and data models</strong> for vehicle listings, car inspection workflows, auction mechanics, and dealer payment settlement through a virtual account system.</li>
+        <li>Take product requirements and turn them into technical designs, then plan and estimate my own delivery against them, together with product management and QA.</li>
+        <li>Design <strong>REST and GraphQL</strong> contracts for web and mobile consumers, then document and exercise them in <strong>Postman</strong> so client teams can integrate without back-and-forth.</li>
+        <li>Own the delivery path for these services up to deploy: <strong>Docker</strong> packaging, <strong>GitLab CI/CD</strong> pipelines for build, test, and deploy, artifact and dependency management in <strong>JFrog</strong>, and pre-deploy checks. Below that line the <strong>Kubernetes on AWS</strong> platform is owned by a dedicated DevOps team.</li>
+        <li>Own observability. <strong>Grafana and Datadog</strong> for service health, latency, and error rate; <strong>Redash</strong> dashboards for the reporting that operations and commercial teams make decisions from.</li>
+        <li>Make the data-layer decisions: <strong>PostgreSQL and MySQL</strong> modelling and query tuning, with <strong>Redis</strong> where caching or short-lived state is the right answer.</li>
+        <li>Review teammates' merge requests as a peer, and document and agree API contracts in Postman with the teams that consume them.</li>
+        <li>Coordinate with cross-functional teams to define, design, and ship features, and manage secure remote access to internal services with <strong>Twingate</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Fullstack Developer (Freelance)</div>
+        <div class="job-date">Aug 2023 &ndash; Oct 2023</div>
+      </div>
+      <div class="job-company">Kementerian Agraria dan Tata Ruang / BPN <span>&mdash; Ministry of Agrarian Affairs and Spatial Planning</span></div>
+      <div class="job-context">
+        Three-month freelance engagement between two permanent roles, building a national
+        monitoring dashboard for the ministry's land bank programme.
+      </div>
+      <ul class="bullets">
+        <li>Worked directly with the ministry's <strong>Direktorat Bank Tanah</strong> to scope a single national view of land bank data, replacing their manual Excel recap, then designed and delivered it as sole developer.</li>
+        <li>Front end in <strong>Next.js</strong> against a <strong>Laravel</strong> API, delivered end to end inside a fixed three-month window.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Fullstack Developer &mdash; Product Delivery</div>
+        <div class="job-date">Aug 2019 &ndash; Aug 2023</div>
+      </div>
+      <div class="job-company">PT Immobi Solusi Prima <span>&mdash; telecommunications software</span></div>
+      <div class="job-context">
+        Software house serving Indonesian telco operators. Small teams and wide ownership, which in
+        practice meant acting as the technical owner on a product from first client conversation
+        through to production.
+      </div>
+      <ul class="bullets">
+        <li>Technical owner end to end on several client products: gathered requirements directly from telco clients, designed the architecture and data model, then built and delivered it.</li>
+        <li>Designed the data model and integration approach for <strong>Netsight</strong> (fixed broadband service monitoring) and <strong>Realviux</strong> (self-service dashboard platform with a SQL editor, alert notifications, and scheduled report delivery).</li>
+        <li>Delivered a <strong>capacity planning dashboard for Telkomsel</strong>, working to the client's own planning data, definitions, and review cycle.</li>
+        <li>Built an internal <strong>ERP</strong> to manage, integrate, and monitor company business processes. This began as a process-mapping exercise across departments before any technical design existed.</li>
+        <li>Built <strong>Fieldtrack</strong>, an Agile project management tool used to plan and track the company's own project delivery, which gave me a working view of delivery mechanics from the inside.</li>
+        <li>Handled the non-functional side of these products: authentication and authorisation, access control, schema design, and load times on dashboards rendering large result sets and dense geospatial layers.</li>
+        <li>Worked with designers, product managers, and client-side engineers through Agile ceremonies, demos, and handover.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Fullstack Developer &mdash; Client Projects</div>
+        <div class="job-date">Aug 2017 &ndash; Jul 2019</div>
+      </div>
+      <div class="job-company">PT Azha Teknologi Pratama <span>&mdash; web and mobile agency</span></div>
+      <div class="job-context">
+        Agency delivery for SME and enterprise clients, including DHL Supply Chain. Started on Android
+        (Sep 2017 to Jan 2018) before moving to the web team.
+      </div>
+      <ul class="bullets">
+        <li>Ran client projects from scoping and estimation through build, deployment, and handover, including a <strong>dock management system for DHL Supply Chain</strong>.</li>
+        <li>Sat with clients to turn business requirements into something buildable, and managed expectations on what a given scope would actually take.</li>
+        <li>Designed and built the application and database layer in <strong>Laravel, PHP, and MySQL</strong>, and integrated CMS so client teams could manage content themselves.</li>
+        <li>Handled deployment to client hosting, server configuration, and technical handover at the end of each engagement.</li>
+        <li>As <strong>Android Developer</strong> (Sep 2017 &ndash; Jan 2018): designed, coded, and modified Android applications from layout through to functionality against client specifications.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ways of Working</h2>
+    <ul class="bullets">
+      <li><strong>Map before designing.</strong> On both the ERP and Fieldtrack, the first deliverable was an understanding of the existing process, not a schema. Designs that skip this get rebuilt.</li>
+      <li><strong>Write the contract down first.</strong> Data model and API contract agreed with consuming teams before build starts, then documented in Postman and kept current.</li>
+      <li><strong>Take the feedback early.</strong> Designs get challenged before build, and the cheapest moment to find a simpler approach is while nothing has been written yet.</li>
+      <li><strong>Ship with the pipeline and monitoring already in place.</strong> CI/CD, artifact management, and dashboards for health and business metrics are part of the release, not a follow-up ticket.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Delivery Portfolio</h2>
+
+    <h3>PT Astra Digital Mobil &mdash; OLX Indonesia</h3>
+
+    <div class="proj">
+      <div class="proj-head">
+        <div class="proj-name">OLX Admin &amp; Dealer Platform</div>
+        <div class="proj-date">Oct 2023 &ndash; Present</div>
+      </div>
+      <div class="proj-line"><b>Context.</b> Internal admin tooling for users, car inspection lists, vehicle listings, and auctions, plus a dealer-facing platform for joining auctions, listing cars, and settling won vehicles through a virtual account system.</div>
+      <div class="proj-line"><b>My role.</b> Backend design and delivery: service boundaries, API contracts, data models, CI/CD, and observability for the services I own.</div>
+      <div class="proj-tech">Node.js &middot; Nest.js &middot; Express.js &middot; GraphQL &middot; REST &middot; PostgreSQL &middot; MySQL &middot; Redis &middot; GitLab CI/CD &middot; JFrog &middot; Grafana &middot; Datadog &middot; Redash</div>
+    </div>
+
+    <h3>Kementerian Agraria dan Tata Ruang / BPN &mdash; freelance</h3>
+
+    <div class="proj">
+      <div class="proj-head">
+        <div class="proj-name">Land Bank Monitoring Dashboard</div>
+        <div class="proj-date">Aug 2023 &ndash; Oct 2023</div>
+      </div>
+      <div class="proj-meta">Fullstack Developer (freelance) &middot; client: Ministry of Agrarian Affairs and Spatial Planning</div>
+      <div class="proj-desc">National monitoring dashboard used by the ministry's Direktorat Bank Tanah, replacing a manual Excel recap with a single view of land bank data across Indonesia. Sole developer, delivered inside a three-month engagement.</div>
+      <div class="proj-tech">Next.js &middot; Laravel &middot; PHP</div>
+    </div>
+
+    <h3>PT Immobi Solusi Prima</h3>
+
+    <div class="proj">
+      <div class="proj-head">
+        <div class="proj-name">Realviux &mdash; self-service dashboard platform</div>
+        <div class="proj-date">Feb 2023 &ndash; Apr 2023</div>
+      </div>
+      <div class="proj-line"><b>Context.</b> Product letting users build dashboards quickly: connect any data source, customise queries in a SQL editor, publish charts, and set up alert notifications and scheduled reports without developer involvement.</div>
+      <div class="proj-line"><b>My role.</b> Architecture and data model, then delivery.</div>
+      <div class="proj-tech">Next.js &middot; Recharts &middot; ECharts &middot; Deck.gl &middot; Ant Design &middot; AdonisJS &middot; PostgreSQL</div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <div class="proj-name">Netsight &mdash; fixed broadband monitoring</div>
+        <div class="proj-date">Jan 2022 &ndash; Aug 2023</div>
+      </div>
+      <div class="proj-line"><b>Context.</b> Measurement platform monitoring the performance of fixed broadband network services, including site monitoring dashboards and reporting. Public site delivered alongside it at netsightsolution.com.</div>
+      <div class="proj-line"><b>My role.</b> Data model and integration design, plus fullstack delivery.</div>
+      <div class="proj-tech">Next.js &middot; Ant Design &middot; Recharts &middot; ECharts &middot; Deck.gl &middot; AdonisJS &middot; PostgreSQL</div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <div class="proj-name">Smart Planning Capacity Dashboard</div>
+        <div class="proj-date">2023</div>
+      </div>
+      <div class="proj-line"><b>Context.</b> Network capacity planning dashboard for Telkomsel, Indonesia's largest mobile operator, built against the client's own planning data and definitions.</div>
+      <div class="proj-line"><b>My role.</b> Client requirements, solution design, and delivery.</div>
+      <div class="proj-tech">Vite &middot; Ant Design &middot; ECharts &middot; Express.js &middot; PostgreSQL</div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <div class="proj-name">Internal ERP</div>
+        <div class="proj-date">Nov 2022 &ndash; Jan 2023</div>
+      </div>
+      <div class="proj-line"><b>Context.</b> Application to manage, integrate, and monitor the company's own business processes across departments.</div>
+      <div class="proj-line"><b>My role.</b> Current-state process mapping, solution design, and build. The mapping work was the bulk of the value.</div>
+      <div class="proj-tech">Next.js &middot; Ant Design &middot; AdonisJS &middot; PostgreSQL</div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <div class="proj-name">Fieldtrack &mdash; Agile project management tool</div>
+        <div class="proj-date">Apr 2022 &ndash; Aug 2022</div>
+      </div>
+      <div class="proj-line"><b>Context.</b> Tool to manage and track projects on an Agile workflow, used for the company's own delivery.</div>
+      <div class="proj-line"><b>My role.</b> Requirements from the delivery teams who would use it, then design and build.</div>
+      <div class="proj-tech">Next.js &middot; Ant Design &middot; ECharts &middot; Recharts &middot; AdonisJS &middot; PostgreSQL</div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <div class="proj-name">Drive-test signal analysis &amp; site monitoring</div>
+        <div class="proj-date">2020 &ndash; 2021</div>
+      </div>
+      <div class="proj-line"><b>Context.</b> Geospatial rendering of drive-test signal measurements and a network site monitoring dashboard, both for telco operations teams.</div>
+      <div class="proj-line"><b>My role.</b> Fullstack delivery, including the spatial data model and rendering approach for dense point and path data.</div>
+      <div class="proj-tech">Next.js &middot; Deck.gl &middot; Recharts &middot; AdonisJS &middot; PostgreSQL &middot; PostGIS</div>
+    </div>
+
+    <h3>PT Azha Teknologi Pratama</h3>
+
+    <div class="proj">
+      <div class="proj-head">
+        <div class="proj-name">Dock Management System &mdash; DHL Supply Chain</div>
+        <div class="proj-date">2018</div>
+      </div>
+      <div class="proj-line"><b>Context.</b> Warehouse dock scheduling and management for a global logistics operator.</div>
+      <div class="proj-line"><b>My role.</b> Client engagement from scoping and estimation through build, deployment, and handover.</div>
+      <div class="proj-tech">Laravel &middot; PHP &middot; MySQL &middot; JavaScript</div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <div class="proj-name">Client web delivery &mdash; family-trike.com, cda.co.id, azha.co.id</div>
+        <div class="proj-date">2018 &ndash; 2019</div>
+      </div>
+      <div class="proj-line"><b>Context.</b> Company profile and product catalogue sites for SME clients, with CMS-backed content management.</div>
+      <div class="proj-line"><b>My role.</b> Scoping, build, deployment, server configuration, and handover to client teams.</div>
+      <div class="proj-tech">Laravel &middot; PHP &middot; MySQL &middot; JavaScript</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+
+    <div class="edu">
+      <div class="edu-head">
+        <div class="edu-deg">Master's Degree (M.M.S.I.) &mdash; Information Systems Management</div>
+        <div class="edu-date">2018 &ndash; 2020</div>
+      </div>
+      <div class="edu-school">Universitas Gunadarma &middot; GPA 3.44 / 4.00</div>
+      <div class="edu-note">
+        Dual study programme combining information systems and management, aimed at IT application in
+        a knowledge-based economy. Coursework covered management information systems, business process
+        analysis and design, enterprise systems, and database analysis and design.
+      </div>
+    </div>
+
+    <div class="edu">
+      <div class="edu-head">
+        <div class="edu-deg">Bachelor's Degree (S.Kom.) &mdash; Information Systems</div>
+        <div class="edu-date">2013 &ndash; 2017</div>
+      </div>
+      <div class="edu-school">Universitas Gunadarma &middot; GPA 3.50 / 4.00</div>
+      <div class="edu-note">
+        Information systems development: systems analysis, design and programming, business process
+        analysis and design, and database design.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications &amp; Training</h2>
+    <table class="certs">
+      <tr>
+        <td class="date">Aug 2022</td>
+        <td class="what"><b>Fundamentals of Red Hat Enterprise Linux</b><br><span>ID-Networkers (IDN.ID)</span></td>
+      </tr>
+      <tr>
+        <td class="date">Feb 2020</td>
+        <td class="what"><b>Oracle Fundamentals &amp; Advanced PL/SQL</b><br><span>Hendevane Training Partner (HTP)</span></td>
+      </tr>
+      <tr>
+        <td class="date">Jul 2023</td>
+        <td class="what"><b>Cryptography for Beginners</b><br><span>Cyber Academy Indonesia</span></td>
+      </tr>
+      <tr>
+        <td class="date">Jul 2023</td>
+        <td class="what"><b>Complete React Developer (with Redux, Hooks, GraphQL)</b><br><span>Udemy</span></td>
+      </tr>
+    </table>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lutfi Febrianto — Tech Lead / Senior Backend Engineer</title>
+<style>
+  /* ============================================================
+     CV — Lutfi Febrianto | Tech lead track, 1 page
+     Self-contained. A4. Print: Ctrl+P, A4, margin None,
+     "Background graphics" ON so the sidebar renders.
+     ============================================================ */
+
+  :root {
+    --navy:      #16293d;
+    --cyan:      #7fd0e0;
+    --ink:       #1b2b3a;
+    --ink-soft:  #4a5a6a;
+    --accent:    #0e7490;
+    --rule:      #dde3e9;
+    --side-fg:   #eef3f8;
+    --side-dim:  #a7b8c9;
+  }
+
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 210mm;
+    font-family: "Inter", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Two columns via display:table, not grid or flex. Grid makes print
+     renderers split the sheet onto a phantom second page. */
+  .page {
+    width: 210mm; height: 297mm;
+    display: table; table-layout: fixed;
+    background: #fff;
+  }
+  .side, .main { display: table-cell; vertical-align: top; }
+  .side { width: 66mm; }
+
+  /* ---------------- sidebar ---------------- */
+
+  .side { background: var(--navy); color: var(--side-fg); padding: 11mm 8mm 10mm; }
+
+  .monogram {
+    width: 26mm; height: 26mm; margin: 0 auto 4.5mm;
+    border-radius: 50%;
+    border: 0.9mm solid rgba(255,255,255,0.22);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22pt; font-weight: 300; color: #fff;
+  }
+  /* Swap in a real photo:
+     <img class="photo" src="foto.jpg" alt="">
+     .photo { width:26mm; height:26mm; border-radius:50%; object-fit:cover; } */
+
+  .name { font-size: 17pt; font-weight: 700; line-height: 1.12; text-align: center; color: #fff; }
+  .role {
+    margin-top: 1.5mm; text-align: center;
+    font-size: 7.6pt; font-weight: 500; letter-spacing: 0.9px; line-height: 1.35;
+    text-transform: uppercase; color: var(--cyan);
+  }
+
+  .side-rule { height: 0.35mm; background: rgba(255,255,255,0.16); margin: 5mm 0 4.5mm; }
+
+  .side h2 {
+    font-size: 8.2pt; font-weight: 700; letter-spacing: 1.6px;
+    text-transform: uppercase; color: #fff;
+    padding-bottom: 1.6mm; margin-bottom: 2.8mm;
+    border-bottom: 0.3mm solid rgba(255,255,255,0.18);
+  }
+  .side section + section { margin-top: 5mm; }
+
+  .contact { list-style: none; font-size: 8.3pt; line-height: 1.45; }
+  .contact li { display: flex; gap: 2.4mm; margin-bottom: 2.4mm; }
+  .contact .ico { flex: 0 0 3.6mm; margin-top: 0.5mm; color: var(--cyan); font-size: 8pt; }
+  .contact a, .contact span.val { color: var(--side-fg); text-decoration: none; word-break: break-word; }
+
+  .skill-group { margin-bottom: 2.7mm; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-label {
+    font-size: 7.4pt; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; color: var(--cyan); margin-bottom: 0.8mm;
+  }
+  .skill-list { font-size: 8.1pt; line-height: 1.4; }
+
+  .edu { margin-bottom: 3mm; }
+  .edu:last-child { margin-bottom: 0; }
+  .edu-deg { font-size: 8.5pt; font-weight: 600; line-height: 1.3; color: #fff; }
+  .edu-meta { font-size: 7.8pt; color: var(--side-dim); line-height: 1.4; margin-top: 0.5mm; }
+
+  .cert { margin-bottom: 2.5mm; }
+  .cert:last-child { margin-bottom: 0; }
+  .cert-name { font-size: 8pt; font-weight: 600; line-height: 1.32; color: #fff; }
+  .cert-meta { font-size: 7.5pt; color: var(--side-dim); margin-top: 0.4mm; }
+
+  /* ---------------- main ---------------- */
+
+  .main { padding: 11mm 11mm 7mm 10mm; }
+
+  .main h2 {
+    font-size: 10pt; font-weight: 700; letter-spacing: 1.7px;
+    text-transform: uppercase; color: var(--navy);
+    display: flex; align-items: center; gap: 3mm; margin-bottom: 3.2mm;
+  }
+  .main h2::after { content: ""; flex: 1 1 auto; height: 0.3mm; background: var(--rule); }
+  .main section + section { margin-top: 5mm; }
+
+  .summary { font-size: 8.9pt; line-height: 1.5; color: var(--ink-soft); }
+
+  .job { margin-bottom: 3.7mm; }
+  .job:last-child { margin-bottom: 0; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; margin-bottom: 0.4mm; }
+  .job-title { font-size: 9.8pt; font-weight: 700; color: var(--navy); line-height: 1.25; }
+  .job-date { flex: 0 0 auto; font-size: 7.8pt; font-weight: 600; color: var(--accent); white-space: nowrap; }
+  .job-company { font-size: 8.6pt; font-weight: 500; color: var(--ink-soft); margin-bottom: 1.5mm; }
+  .job-company em { font-style: normal; color: var(--accent); font-weight: 600; }
+
+  ul.bullets { list-style: none; }
+  ul.bullets li {
+    position: relative; padding-left: 3.6mm; margin-bottom: 1.1mm;
+    font-size: 8.4pt; line-height: 1.42; color: var(--ink-soft);
+  }
+  ul.bullets li::before {
+    content: ""; position: absolute; left: 0.5mm; top: 1.5mm;
+    width: 1.1mm; height: 1.1mm; border-radius: 50%;
+    background: var(--accent); opacity: 0.65;
+  }
+  ul.bullets li strong { color: var(--ink); font-weight: 600; }
+
+  .proj { margin-bottom: 2.3mm; }
+  .proj:last-child { margin-bottom: 0; }
+  .proj-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+  .proj-name { font-size: 8.7pt; font-weight: 600; color: var(--navy); }
+  .proj-name .at { font-weight: 400; color: var(--ink-soft); }
+  .proj-date { flex: 0 0 auto; font-size: 7.5pt; color: var(--ink-soft); white-space: nowrap; }
+  .proj-desc { font-size: 8.1pt; line-height: 1.4; color: var(--ink-soft); margin-top: 0.4mm; }
+  .proj-tech { font-size: 7.5pt; color: var(--accent); margin-top: 0.5mm; }
+
+  @media screen {
+    body { background: #e9edf1; padding: 8mm 0; }
+    .page { margin: 0 auto; box-shadow: 0 2px 18px rgba(0,0,0,0.18); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <aside class="side">
+    <div class="monogram">LF</div>
+    <div class="name">Lutfi Febrianto</div>
+    <div class="role">Tech Lead<br>&amp; Senior Backend Engineer</div>
+
+    <div class="side-rule"></div>
+
+    <section>
+      <h2>Contact</h2>
+      <ul class="contact">
+        <li><span class="ico">&#9743;</span><span class="val">+62 857 1884 1359</span></li>
+        <li><span class="ico">&#9993;</span><a href="mailto:lutfi.febrianto@gmail.com">lutfi.febrianto@gmail.com</a></li>
+        <li><span class="ico">&#9906;</span><span class="val">Bogor, West Java, Indonesia</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Leading Work</h2>
+      <div class="skill-group">
+        <div class="skill-label">Technical Direction</div>
+        <div class="skill-list">Service and data boundaries, API contract design, data modelling, technical design, peer code review</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">Working with Teams</div>
+        <div class="skill-list">Working from requirements with product and QA, estimation, Agile / Scrum, client-facing scoping and handover</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Stack</h2>
+      <div class="skill-group">
+        <div class="skill-label">Backend</div>
+        <div class="skill-list">Node.js, Nest.js, Express.js, AdonisJS, REST, GraphQL, PHP, Laravel</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">Frontend</div>
+        <div class="skill-list">React, Next.js, Vite, Vue.js + Vuex, Ant Design, ECharts, Deck.gl</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">Data</div>
+        <div class="skill-list">PostgreSQL, MySQL, Redis, PostGIS, PL/SQL</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">Build &amp; Run</div>
+        <div class="skill-list">Docker, GitLab CI/CD, JFrog, Grafana, Datadog, Redash, Postman, Linux</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="edu">
+        <div class="edu-deg">M.M.S.I. &mdash; Information Systems Management</div>
+        <div class="edu-meta">Universitas Gunadarma &middot; 2018&ndash;2020 &middot; GPA 3.44</div>
+      </div>
+      <div class="edu">
+        <div class="edu-deg">S.Kom. &mdash; Information Systems</div>
+        <div class="edu-meta">Universitas Gunadarma &middot; 2013&ndash;2017 &middot; GPA 3.50</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <div class="cert">
+        <div class="cert-name">Complete React Developer (Redux, Hooks, GraphQL)</div>
+        <div class="cert-meta">Udemy &middot; 2023</div>
+      </div>
+      <div class="cert">
+        <div class="cert-name">Fundamentals of Red Hat Enterprise Linux</div>
+        <div class="cert-meta">ID-Networkers &middot; 2022</div>
+      </div>
+    </section>
+  </aside>
+
+  <main class="main">
+
+    <section>
+      <h2>Profile</h2>
+      <p class="summary">
+        Backend engineer with eight years of experience and a master's in Information Systems
+        Management, currently on OLX Indonesia's backend at Astra Digital Mobil. I design the services
+        I own end to end: service boundaries, data models, and the API contracts the teams consuming
+        them work against. At my previous company I was the technical owner on whole products, taking
+        them from the first client conversation to production. I have not held a lead title yet, and
+        that is the step I am looking for.
+      </p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Backend Developer</div>
+          <div class="job-date">Oct 2023 &ndash; Present</div>
+        </div>
+        <div class="job-company">PT Astra Digital Mobil &mdash; <em>OLX Indonesia</em></div>
+        <ul class="bullets">
+          <li>Design and own backend services for the OLX marketplace, admin, and dealer applications in <strong>Node.js</strong> with <strong>Express.js and Nest.js</strong>: service boundaries, API contracts, and data models.</li>
+          <li>Turn product requirements into technical designs, then plan and estimate my own delivery against them, together with product and QA.</li>
+          <li>Review teammates' merge requests as a peer, alongside my own delivery work.</li>
+          <li>Package services as <strong>Docker</strong> containers and maintain the <strong>GitLab CI/CD</strong> pipeline through to deploy, with artifacts in <strong>JFrog</strong>. Services run on <strong>Kubernetes on AWS</strong>, owned by a dedicated DevOps team.</li>
+          <li>Own observability for these services: <strong>Grafana and Datadog</strong> for health and latency, <strong>Redash</strong> for the reporting business teams work from.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Fullstack Developer (Freelance)</div>
+          <div class="job-date">Aug 2023 &ndash; Oct 2023</div>
+        </div>
+        <div class="job-company">Kementerian Agraria dan Tata Ruang / BPN</div>
+        <ul class="bullets">
+          <li>Built the <strong>land bank monitoring dashboard</strong> for the ministry's <strong>Direktorat Bank Tanah</strong>, replacing a manual Excel recap with one national view. <strong>Next.js</strong> on a <strong>Laravel</strong> API.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Fullstack Developer</div>
+          <div class="job-date">Aug 2019 &ndash; Aug 2023</div>
+        </div>
+        <div class="job-company">PT Immobi Solusi Prima</div>
+        <ul class="bullets">
+          <li>Technical owner end to end on several telco client products: gathered requirements, designed the architecture and data model, then built and shipped it.</li>
+          <li>Delivered <strong>Netsight</strong> (broadband monitoring), <strong>Realviux</strong> (self-service dashboard platform), an internal <strong>ERP</strong>, and a capacity planning dashboard for <strong>Telkomsel</strong>.</li>
+          <li>Built <strong>Fieldtrack</strong>, the Agile project management tool the company ran its own delivery on, which gave me a working view of delivery mechanics from the inside.</li>
+          <li>Handled the parts nobody assigns: auth and access control, schema design, and load times on dashboards rendering large result sets and dense map layers.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Fullstack Developer</div>
+          <div class="job-date">Aug 2017 &ndash; Jul 2019</div>
+        </div>
+        <div class="job-company">PT Azha Teknologi Pratama</div>
+        <ul class="bullets">
+          <li>Ran client projects from scoping and estimation through build, deployment, and handover, including a <strong>dock management system for DHL Supply Chain</strong>.</li>
+          <li>Built web applications in <strong>PHP and Laravel</strong> with MySQL, and started on <strong>Android</strong> (Sep 2017 to Jan 2018) before moving to web.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Selected Projects</h2>
+
+      <div class="proj">
+        <div class="proj-head">
+          <div class="proj-name">OLX Indonesia <span class="at">&mdash; marketplace, admin, dealer apps</span></div>
+          <div class="proj-date">2023 &ndash; Present</div>
+        </div>
+        <div class="proj-desc">Backend for listings, car inspections, auctions, and dealer settlement via virtual accounts.</div>
+        <div class="proj-tech">Node.js &middot; Nest.js &middot; GraphQL &middot; PostgreSQL &middot; Redis &middot; Docker</div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-head">
+          <div class="proj-name">Realviux <span class="at">&mdash; self-service dashboard platform</span></div>
+          <div class="proj-date">2023</div>
+        </div>
+        <div class="proj-desc">Connect a data source, write SQL, publish charts, alerts, and scheduled reports without a developer.</div>
+        <div class="proj-tech">Next.js &middot; Recharts &middot; Deck.gl &middot; AdonisJS &middot; PostgreSQL</div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-head">
+          <div class="proj-name">Smart Planning Capacity Dashboard <span class="at">&mdash; Telkomsel</span></div>
+          <div class="proj-date">2023</div>
+        </div>
+        <div class="proj-desc">Capacity planning view over network data for Indonesia's largest mobile operator.</div>
+        <div class="proj-tech">Vite &middot; Ant Design &middot; ECharts &middot; Express.js &middot; PostgreSQL</div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-head">
+          <div class="proj-name">Internal ERP <span class="at">&mdash; PT Immobi Solusi Prima</span></div>
+          <div class="proj-date">2022 &ndash; 2023</div>
+        </div>
+        <div class="proj-desc">Manages, integrates, and monitors business processes across departments. Started as a process-mapping exercise, not a schema.</div>
+        <div class="proj-tech">Next.js &middot; Ant Design &middot; AdonisJS &middot; PostgreSQL</div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
