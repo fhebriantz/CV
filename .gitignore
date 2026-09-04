@@ -27,3 +27,10 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# ---- CV orang lain (Muhammad Rizki) ----
+# Data pribadi pihak ketiga: nomor HP dan email orang lain. Tidak ikut repo
+# publik ini tanpa izin yang bersangkutan. Generatornya (make-rizki-cv.py)
+# ter-commit; file CV-nya tidak.
+rizki-*.html
+rizki-*.pdf

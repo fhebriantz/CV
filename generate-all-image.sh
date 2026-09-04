@@ -71,6 +71,10 @@ if [[ ${#FILES[@]} -eq 0 && "$TARGET_DIR" == "$SCRIPT_DIR" ]]; then
     uv run --no-project --quiet python "$SCRIPT_DIR/make-ats-variants.py" \
       || echo "[WARN] Regenerate varian ATS gagal; melanjutkan dengan file yang ada."
   fi
+  if [[ -f "$SCRIPT_DIR/make-rizki-cv.py" ]]; then
+    uv run --no-project --quiet python "$SCRIPT_DIR/make-rizki-cv.py" \
+      || echo "[WARN] Regenerate CV Rizki gagal; melanjutkan dengan file yang ada."
+  fi
   if [[ -f "$SCRIPT_DIR/make-photo-variants.py" ]]; then
     uv run --no-project --quiet --with pillow python "$SCRIPT_DIR/make-photo-variants.py" \
       || echo "[WARN] Regenerate varian foto gagal; melanjutkan dengan file yang ada."
