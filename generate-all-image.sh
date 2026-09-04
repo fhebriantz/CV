@@ -64,10 +64,16 @@ if ! command -v uv >/dev/null 2>&1; then
   exit 1
 fi
 
-# Varian *-photo.html adalah file turunan; samakan dulu dengan induknya.
-if [[ ${#FILES[@]} -eq 0 && "$TARGET_DIR" == "$SCRIPT_DIR" && -f "$SCRIPT_DIR/make-photo-variants.py" ]]; then
-  if ! uv run --no-project --quiet --with pillow python "$SCRIPT_DIR/make-photo-variants.py"; then
-    echo "[WARN] Regenerate varian foto gagal; melanjutkan dengan file yang ada."
+# Varian *-ats.html dan *-photo.html adalah FILE TURUNAN dari induknya.
+# Regenerate dulu supaya tidak pernah basi setelah file induk diedit.
+if [[ ${#FILES[@]} -eq 0 && "$TARGET_DIR" == "$SCRIPT_DIR" ]]; then
+  if [[ -f "$SCRIPT_DIR/make-ats-variants.py" ]]; then
+    uv run --no-project --quiet python "$SCRIPT_DIR/make-ats-variants.py" \
+      || echo "[WARN] Regenerate varian ATS gagal; melanjutkan dengan file yang ada."
+  fi
+  if [[ -f "$SCRIPT_DIR/make-photo-variants.py" ]]; then
+    uv run --no-project --quiet --with pillow python "$SCRIPT_DIR/make-photo-variants.py" \
+      || echo "[WARN] Regenerate varian foto gagal; melanjutkan dengan file yang ada."
   fi
   echo
 fi

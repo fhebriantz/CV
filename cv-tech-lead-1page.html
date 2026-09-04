@@ -120,16 +120,15 @@
   .job-company { font-size: 8.6pt; font-weight: 500; color: var(--ink-soft); margin-bottom: 1.5mm; }
   .job-company em { font-style: normal; color: var(--accent); font-weight: 600; }
 
-  ul.bullets { list-style: none; }
+  ul.bullets { list-style: disc outside; padding-left: 3.6mm; }
   ul.bullets li {
-    position: relative; padding-left: 3.6mm; margin-bottom: 1.1mm;
+    margin-bottom: 1.1mm;
     font-size: 8.4pt; line-height: 1.42; color: var(--ink-soft);
   }
-  ul.bullets li::before {
-    content: ""; position: absolute; left: 0.5mm; top: 1.5mm;
-    width: 1.1mm; height: 1.1mm; border-radius: 50%;
-    background: var(--accent); opacity: 0.65;
-  }
+  /* ATS: marker native, bukan ::before absolut. Elemen ber-position
+     memindahkan teksnya ke lapisan cat belakangan di PDF, sehingga
+     bullet terekstrak terlepas dari header jabatannya. */
+  ul.bullets li::marker { color: var(--accent); font-size: 0.75em; }
   ul.bullets li strong { color: var(--ink); font-weight: 600; }
 
   .proj { margin-bottom: 2.3mm; }
