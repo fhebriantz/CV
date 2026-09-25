@@ -62,7 +62,7 @@ Redis, Docker, GitLab CI/CD, Grafana, Datadog. Master's in Information Systems
 Management from Universitas Gunadarma.
 
 Open to Tech Lead, Lead Backend Engineer, and Solution Architect roles.
-+62 857 1884 1359 · lutfi.febrianto@gmail.com
++62 857 1884 1359 · lutfi.febrianto@gmail.com · lutfilabs.com
 ```
 
 ---
