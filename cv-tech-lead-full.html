@@ -297,8 +297,9 @@
         <li>Built <strong>Fieldtrack</strong>, the Agile project management tool the company ran its own delivery on. Gathering requirements from the delivery teams who would use it gave me a working view of delivery mechanics from the inside.</li>
         <li>Built front ends in <strong>React, Next.js, and Vite</strong> with Ant Design, and the data-visualisation layer with <strong>ECharts, Recharts, and Deck.gl</strong>.</li>
         <li>Built <strong>drive-test signal rendering with custom thresholds</strong>, so network engineers could set their own signal cut-offs and have the coverage map re-classify against them instead of asking for a new report.</li>
-        <li>Implemented the <strong>bad-spot calculation</strong> from raw drive-test measurements, turning point-level signal readings into the weak-coverage areas the network team acted on.</li>
-        <li>Rendered <strong>2G, 3G, and 4G sites</strong> as separate map layers, and built <strong>polygon area analysis in PostGIS</strong>: draw an area, get back the sites whose coverage intersects it.</li>
+        <li>Cut the bad-spot workflow from <strong>hours to seconds</strong>. Engineers used to scan drive-test points one by one for readings below threshold, then look up the nearest site by hand. The map now flags weak-coverage spots automatically and returns the <strong>three nearest sites</strong> on click.</li>
+        <li>Rendered <strong>hundreds of thousands of cell records and drive-test measurement points</strong> per region on one map, with <strong>2G, 3G, and 4G</strong> as separate layers.</li>
+        <li>Built <strong>polygon area analysis in PostGIS</strong>: draw an area, get back the sites whose coverage intersects it.</li>
         <li>Developed APIs and background jobs in <strong>Express.js and AdonisJS</strong> against <strong>PostgreSQL</strong> and <strong>PostGIS</strong>.</li>
         <li>Took on the parts nobody assigns: authentication and authorisation, access control, schema design, and load times on dashboards rendering large result sets and dense map layers.</li>
         <li>Worked with designers, product managers, and client-side engineers through Agile ceremonies, demos, and handover, using <strong>GitLab</strong> for version control and collaboration.</li>
