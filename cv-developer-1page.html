@@ -256,6 +256,7 @@
         <ul class="bullets">
           <li>Backend services for the OLX marketplace, admin, and dealer applications, written in <strong>Node.js</strong> with <strong>Express.js and Nest.js</strong>.</li>
           <li>REST and <strong>GraphQL</strong> endpoints covering vehicle listings, car inspections, auctions, and the virtual-account payment flow dealers use to settle what they win, documented and exercised in Postman.</li>
+          <li>Took the admin app's inspection-list and auction menus from a <strong>120-second timeout to 85 ms</strong>: a <strong>deferred join</strong> (478 ms), then the missing <strong>indexes</strong> (85 ms).</li>
           <li><strong>PostgreSQL and MySQL</strong> schema design and query tuning, with <strong>Redis</strong> for caching and short-lived state.</li>
           <li>Package services as <strong>Docker</strong> containers and maintain the <strong>GitLab CI/CD</strong> pipeline through to deploy, with artifacts in <strong>JFrog</strong>. Services run on <strong>Kubernetes on AWS</strong>, a platform owned by a dedicated DevOps team; read-only AWS access for inspecting resources and logs while debugging.</li>
           <li>Service health and latency watched in <strong>Grafana and Datadog</strong>. Reporting dashboards for business teams built in <strong>Redash</strong>.</li>

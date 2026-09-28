@@ -193,7 +193,7 @@
       </tr>
       <tr>
         <th>Standards &amp; Docs</th>
-        <td>Peer code review, coding and schema standards, API contract documentation in Postman, technical documentation</td>
+        <td>Code review, technical guidance to new developers, coding and schema standards, API contract documentation in Postman</td>
       </tr>
       <tr>
         <th>Platform &amp; Operations</th>
@@ -237,8 +237,9 @@
         <li>Design <strong>REST and GraphQL</strong> contracts for web and mobile consumers, then document and exercise them in <strong>Postman</strong> so client teams can integrate without back-and-forth.</li>
         <li>Own the delivery path for these services up to deploy: <strong>Docker</strong> packaging, <strong>GitLab CI/CD</strong> pipelines for build, test, and deploy, artifact and dependency management in <strong>JFrog</strong>, and pre-deploy checks. Below that line the <strong>Kubernetes on AWS</strong> platform is owned by a dedicated DevOps team.</li>
         <li>Own observability. <strong>Grafana and Datadog</strong> for service health, latency, and error rate; <strong>Redash</strong> dashboards for the reporting that operations and commercial teams make decisions from.</li>
+        <li>Took the admin app's inspection-list and auction menus from a <strong>120-second timeout to 85 ms</strong>: traced the slow path, replaced the access pattern with a <strong>deferred join</strong> (478 ms), then added the missing <strong>indexes</strong> (85 ms), and wrote the RCA up for the team.</li>
         <li>Make the data-layer decisions: <strong>PostgreSQL and MySQL</strong> modelling and query tuning, with <strong>Redis</strong> where caching or short-lived state is the right answer.</li>
-        <li>Review teammates' merge requests as a peer, and document and agree API contracts in Postman with the teams that consume them.</li>
+        <li>Review the team's merge requests and approve changes to the services I own, give technical guidance to developers new to the codebase, and document and agree API contracts in Postman.</li>
         <li>Coordinate with cross-functional teams to define, design, and ship features, and manage secure remote access to internal services with <strong>Twingate</strong>.</li>
       </ul>
     </div>

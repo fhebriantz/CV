@@ -89,11 +89,20 @@ platforms.
 • Design and own backend services in Node.js with Express.js and Nest.js: service
 boundaries, REST and GraphQL contracts, and data models across vehicle listings,
 car inspections, auctions, and dealer payment settlement through virtual accounts.
-• Review teammates' merge requests as a peer, alongside my own delivery work.
+• Break delivery down into tasks and run the split with the other engineers, who
+take what fits rather than having it handed down.
+• Review the team's merge requests and approve changes to the services I own, and
+give technical guidance to developers new to the codebase.
 • Turn product requirements into technical designs, then plan and estimate my own
 delivery against them, together with product management and QA.
-• Model and tune relational data on PostgreSQL and MySQL, with Redis for caching
-and short-lived state.
+• Took the admin app's inspection-list and auction menus from a 120-second timeout
+to 85 ms: replaced the access pattern with a deferred join (478 ms), then added the
+missing indexes (85 ms), and wrote the RCA up for the team.
+• Designed and built the virtual-account payment settlement flow dealers use to pay
+for vehicles they win, with idempotent handling so a retried callback never settles
+twice.
+• Model and tune relational data on PostgreSQL and MySQL, including indexing and
+query optimisation, with Redis for caching and short-lived state.
 • Package services as Docker containers and maintain the GitLab CI/CD pipelines
 through to deploy, with artifacts in JFrog. Services run on Kubernetes on AWS, a
 platform managed by a dedicated DevOps team.
