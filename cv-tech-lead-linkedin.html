@@ -59,7 +59,7 @@
 
   /* ---------------- sidebar ---------------- */
 
-  .side { background: var(--navy); color: var(--side-fg); padding: 12mm 8mm 10mm; }
+  .side { background: var(--navy); color: var(--side-fg); padding: 12mm 8mm 7.5mm; }
 
   .monogram {
     width: 28mm; height: 28mm; margin: 0 auto 4.5mm;
@@ -94,7 +94,7 @@
     padding-bottom: 1.8mm; margin-bottom: 3.2mm;
     border-bottom: 0.3mm solid rgba(255,255,255,0.18);
   }
-  .side section + section { margin-top: 5mm; }
+  .side section + section { margin-top: 4.2mm; }
 
   .contact { list-style: none; font-size: 9.2pt; line-height: 1.45; }
   .contact li { display: flex; gap: 2.6mm; margin-bottom: 3mm; }
@@ -102,7 +102,7 @@
   .contact .ico { flex: 0 0 4mm; margin-top: 0.4mm; color: var(--cyan); font-size: 8.6pt; }
   .contact a, .contact span.val { color: var(--side-fg); text-decoration: none; word-break: break-word; }
 
-  .skill-group { margin-bottom: 3.4mm; }
+  .skill-group { margin-bottom: 2.8mm; }
   .skill-group:last-child { margin-bottom: 0; }
   .skill-label {
     font-size: 8pt; font-weight: 700; letter-spacing: 0.8px;
@@ -110,7 +110,7 @@
   }
   .skill-list { font-size: 9pt; line-height: 1.45; }
 
-  .edu { margin-bottom: 3.6mm; }
+  .edu { margin-bottom: 2.9mm; }
   .edu:last-child { margin-bottom: 0; }
   .edu-deg { font-size: 9.2pt; font-weight: 600; line-height: 1.3; color: #fff; }
   .edu-meta { font-size: 8.4pt; color: var(--side-dim); line-height: 1.4; margin-top: 0.6mm; }
@@ -157,6 +157,7 @@
   ul.bullets li::marker { color: var(--accent); font-size: 0.75em; }
   ul.bullets li strong { color: var(--ink); font-weight: 600; }
 
+  .job-tech { font-size: 8.0pt; color: var(--accent); margin-top: 1.2mm; }
   .proj { margin-bottom: 2.2mm; }
   .proj:last-child { margin-bottom: 0; }
   .proj-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
@@ -197,7 +198,7 @@
       <h2>Leading Work</h2>
       <div class="skill-group">
         <div class="skill-label">Technical Direction</div>
-        <div class="skill-list">Service and data boundaries, API contracts, data modelling, ERD and sequence diagrams, code review</div>
+        <div class="skill-list">Microservices and service boundaries, API contracts, data modelling, ERD and sequence diagrams, code review</div>
       </div>
       <div class="skill-group">
         <div class="skill-label">Working with Teams</div>
@@ -265,12 +266,13 @@
         </div>
         <div class="job-company">PT Astra Digital Mobil &mdash; <em>OLX Indonesia</em></div>
         <ul class="bullets">
-          <li>Design and own backend services in <strong>Node.js / TypeScript</strong> with <strong>Express.js and Nest.js</strong>: service boundaries, <strong>REST and GraphQL</strong> contracts, and data models, including the <strong>virtual-account payment settlement</strong> I designed and built.</li>
+          <li>Design and own <strong>microservices</strong> in <strong>Node.js / TypeScript</strong> with <strong>Express.js and Nest.js</strong>: service boundaries, <strong>REST and GraphQL</strong> contracts, and data models, including the <strong>virtual-account payment settlement</strong> I designed and built.</li>
           <li>Took the admin app's inspection-list and auction menus from a <strong>120-second timeout to 85 ms</strong>: replaced the access pattern with a <strong>deferred join</strong> (478 ms), then added the missing <strong>indexes</strong> (85 ms).</li>
           <li>Package services as <strong>Docker</strong> containers and maintain the <strong>GitLab CI/CD</strong> pipeline through to deploy. Services run on <strong>Kubernetes on AWS</strong>, owned by a dedicated DevOps team.</li>
           <li>Break delivery into tasks with the other engineers, review their merge requests and approve changes to the services I own, and give technical guidance to new developers.</li>
           <li>Own observability: <strong>Grafana and Datadog</strong> for health and latency, <strong>Redash</strong> for business reporting.</li>
         </ul>
+          <div class="job-tech">Node.js &middot; TypeScript &middot; Nest.js &middot; Express.js &middot; REST &middot; GraphQL &middot; Microservices &middot; PostgreSQL &middot; MySQL &middot; Redis &middot; Docker &middot; Kubernetes (AWS) &middot; GitLab CI/CD &middot; JFrog &middot; Grafana &middot; Datadog &middot; Redash &middot; Postman</div>
       </div>
 
       <div class="job">
@@ -282,6 +284,7 @@
         <ul class="bullets">
           <li>Built the <strong>land bank monitoring dashboard</strong> for the ministry's <strong>Direktorat Bank Tanah</strong>, replacing a manual Excel recap with one national view. <strong>Next.js</strong> on a <strong>Laravel</strong> API.</li>
         </ul>
+          <div class="job-tech">Next.js &middot; Laravel &middot; PHP</div>
       </div>
 
       <div class="job">
@@ -293,6 +296,7 @@
         <ul class="bullets">
           <li>Technical owner end to end on several telco client products: gathered requirements, designed the architecture and data model, then built and shipped <strong>Netsight</strong> (broadband monitoring), <strong>Realviux</strong> (self-service dashboards), an internal <strong>ERP</strong>, and a capacity planning dashboard for <strong>Telkomsel</strong>.</li>
         </ul>
+          <div class="job-tech">React &middot; Next.js &middot; Vite &middot; Ant Design &middot; ECharts &middot; Recharts &middot; Deck.gl &middot; Node.js &middot; Express.js &middot; AdonisJS &middot; PostgreSQL &middot; PostGIS &middot; GitLab</div>
       </div>
 
       <div class="job">
@@ -304,31 +308,10 @@
         <ul class="bullets">
           <li>Ran client projects from scoping and estimation through build, deployment, and handover, including a <strong>dock management system for DHL Supply Chain</strong>. Built in <strong>PHP and Laravel</strong> with MySQL.</li>
         </ul>
+          <div class="job-tech">PHP &middot; Laravel &middot; MySQL &middot; JavaScript &middot; jQuery &middot; AJAX &middot; Android &middot; GitHub</div>
       </div>
     </section>
 
-    <section>
-      <h2>Selected Projects</h2>
-
-      <div class="proj">
-        <div class="proj-head">
-          <div class="proj-name">OLX Indonesia <span class="at">&mdash; marketplace, admin, dealer apps</span></div>
-          <div class="proj-date">2023 &ndash; Present</div>
-        </div>
-        <div class="proj-desc">Backend for listings, car inspections, auctions, and dealer settlement via virtual accounts.</div>
-        <div class="proj-tech">Node.js &middot; Nest.js &middot; GraphQL &middot; PostgreSQL &middot; Redis &middot; Docker</div>
-      </div>
-
-      <div class="proj">
-        <div class="proj-head">
-          <div class="proj-name">Realviux <span class="at">&mdash; self-service dashboard platform</span></div>
-          <div class="proj-date">2023</div>
-        </div>
-        <div class="proj-desc">Connect a data source, write SQL, publish charts and alerts.</div>
-        <div class="proj-tech">Next.js &middot; Recharts &middot; Deck.gl &middot; AdonisJS &middot; PostgreSQL</div>
-      </div>
-
-    </section>
 
   </main>
 </div>
