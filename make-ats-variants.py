@@ -38,6 +38,18 @@ if sys.platform == "win32":
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
+def write_if_changed(path, content):
+    """Tulis hanya kalau isinya berubah, supaya mtime tidak ikut berubah percuma."""
+    if os.path.isfile(path):
+        try:
+            if io.open(path, encoding="utf-8").read() == content:
+                return False
+        except (OSError, UnicodeDecodeError):
+            pass
+    io.open(path, "w", encoding="utf-8").write(content)
+    return True
+
+
 VARIANTS = {
     "cv-developer-full.html":    "cv-developer-ats.html",
     "cv-tech-lead-full.html":    "cv-tech-lead-ats.html",
@@ -72,10 +84,11 @@ def convert(src_name, dst_name):
     # 3) tandai judulnya supaya tidak tertukar saat mengunggah
     s, n_ti = re.subn(r"(<title>.*?)(</title>)", r"\1 [ATS]\2", s, count=1)
 
-    io.open(os.path.join(HERE, dst_name), "w", encoding="utf-8").write(
-        BANNER.format(src=src_name) + s)
+    changed = write_if_changed(os.path.join(HERE, dst_name),
+                               BANNER.format(src=src_name) + s)
 
-    return (f"[OK]   {dst_name} <- {src_name} "
+    tag = "[OK]  " if changed else "[SAMA]"
+    return (f"{tag} {dst_name} <- {src_name} "
             f"(letter-spacing: {n_ls} dibuang, footer: {n_ft}, title: {n_ti})"), True
 
 

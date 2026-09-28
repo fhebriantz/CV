@@ -43,6 +43,18 @@ from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
+def write_if_changed(path, content):
+    """Tulis hanya kalau isinya berubah, supaya mtime tidak ikut berubah percuma."""
+    if os.path.isfile(path):
+        try:
+            if io.open(path, encoding="utf-8").read() == content:
+                return False
+        except (OSError, UnicodeDecodeError):
+            pass
+    io.open(path, "w", encoding="utf-8").write(content)
+    return True
+
+
 # Kandidat file foto sumber, dipakai yang pertama ketemu.
 PHOTO_CANDIDATES = [
     "foto-source.png",
@@ -127,9 +139,10 @@ def make_variant(src_name, dst_name, b64):
     if n1 != 1 or n2 != 1:
         return f"[FAIL] {dst_name} -> css={n1} html={n2} (harusnya 1/1)"
 
-    io.open(os.path.join(HERE, dst_name), "w", encoding="utf-8").write(
-        BANNER.format(src=src_name) + s)
-    return f"[OK]   {dst_name} <- {src_name} (foto {w}mm)"
+    changed = write_if_changed(os.path.join(HERE, dst_name),
+                               BANNER.format(src=src_name) + s)
+    tag = "[OK]  " if changed else "[SAMA]"
+    return f"{tag} {dst_name} <- {src_name} (foto {w}mm)"
 
 
 def main():
